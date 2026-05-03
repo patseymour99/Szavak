@@ -1,0 +1,88 @@
+{
+  "app": {
+    "title": "Szavak",
+    "tagline": "Családi keresztrejtvény"
+  },
+  "nav": {
+    "home": "Főoldal",
+    "daily": "Napi rejtvény",
+    "collab": "Közös rejtvény",
+    "leaderboard": "Ranglista",
+    "admin": "Beállítások",
+    "logout": "Kijelentkezés"
+  },
+  "language": {
+    "label": "Nyelv",
+    "hu": "Magyar",
+    "en": "Angol"
+  },
+  "puzzleLanguage": {
+    "label": "Rejtvény nyelve"
+  },
+  "login": {
+    "title": "Válassz profilt",
+    "pinPrompt": "Add meg a 4 számjegyű PIN-kódot",
+    "submit": "Belépés",
+    "back": "Vissza",
+    "noProfiles": "Még nincsenek profilok. A főoldalon hozz létre egy admin profilt.",
+    "createFirst": "Első profil létrehozása",
+    "bootstrapPrompt": "Add meg a bootstrap PIN-kódot (alapértelmezés: 0000)",
+    "name": "Név",
+    "pin": "PIN-kód",
+    "create": "Létrehozás",
+    "invalid": "Érvénytelen név vagy PIN-kód."
+  },
+  "home": {
+    "welcome": "Üdv, {{name}}!",
+    "todayCard": "Mai napi rejtvény",
+    "todayDescription": "Versenyezz a többiekkel, ki oldja meg gyorsabban.",
+    "playDaily": "Mai rejtvény indítása",
+    "collabCard": "Közös rejtvény",
+    "collabDescription": "Egy nagyobb rejtvény, amelyet többen együtt töltötök ki.",
+    "joinCollab": "Csatlakozás vagy új indítása",
+    "leaderboardCard": "Ranglista",
+    "leaderboardDescription": "Mai és havi rangsor.",
+    "viewLeaderboard": "Megnézem"
+  },
+  "puzzle": {
+    "across": "Vízszintes",
+    "down": "Függőleges",
+    "check": "Ellenőrzés",
+    "reveal": "Betű felfedése",
+    "submit": "Beadás",
+    "elapsed": "Eltelt idő",
+    "completed": "Kész! Időd: {{time}}",
+    "errors": "{{count}} hibás betű",
+    "loading": "Betöltés…",
+    "wrongAnswer": "Még van hiba a rejtvényben."
+  },
+  "collab": {
+    "title": "Közös rejtvény",
+    "starting": "Munkamenet indítása…",
+    "online": "Most online",
+    "completed": "A család közösen megoldotta!"
+  },
+  "leaderboard": {
+    "daily": "Napi ranglista",
+    "monthly": "Havi ranglista",
+    "rank": "#",
+    "name": "Név",
+    "time": "Idő",
+    "errors": "Hibák",
+    "solves": "Megoldások",
+    "totalTime": "Összes idő",
+    "empty": "Még senki sem oldotta meg."
+  },
+  "admin": {
+    "title": "Beállítások",
+    "createProfile": "Új profil hozzáadása",
+    "deleteProfile": "Törlés",
+    "confirmDelete": "Biztosan törlöd ezt a profilt?"
+  },
+  "common": {
+    "save": "Mentés",
+    "cancel": "Mégse",
+    "loading": "Betöltés…",
+    "error": "Hiba történt"
+  }
+}

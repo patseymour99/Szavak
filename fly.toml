@@ -1,0 +1,32 @@
+# fly.toml — sample deployment config for Fly.io
+# Set DATABASE_URL via `fly secrets set` (e.g., a Fly Postgres or external Postgres).
+# To use SQLite instead, attach a volume and set DATABASE_URL=file:/data/szavak.db.
+
+app = "szavak"
+primary_region = "fra"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "3001"
+  HOST = "0.0.0.0"
+  TIMEZONE = "Europe/Budapest"
+  NODE_ENV = "production"
+
+[http_service]
+  internal_port = 3001
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 512
+
+# Uncomment to mount a volume for SQLite:
+# [mounts]
+#   source = "szavak_data"
+#   destination = "/data"

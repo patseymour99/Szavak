@@ -1,0 +1,88 @@
+{
+  "app": {
+    "title": "Szavak",
+    "tagline": "Family crossword"
+  },
+  "nav": {
+    "home": "Home",
+    "daily": "Daily puzzle",
+    "collab": "Collab puzzle",
+    "leaderboard": "Leaderboard",
+    "admin": "Settings",
+    "logout": "Log out"
+  },
+  "language": {
+    "label": "Language",
+    "hu": "Hungarian",
+    "en": "English"
+  },
+  "puzzleLanguage": {
+    "label": "Puzzle language"
+  },
+  "login": {
+    "title": "Pick a profile",
+    "pinPrompt": "Enter your 4-digit PIN",
+    "submit": "Sign in",
+    "back": "Back",
+    "noProfiles": "No profiles yet. Create the first admin profile from the home screen.",
+    "createFirst": "Create first profile",
+    "bootstrapPrompt": "Enter the bootstrap PIN (default: 0000)",
+    "name": "Name",
+    "pin": "PIN",
+    "create": "Create",
+    "invalid": "Invalid name or PIN."
+  },
+  "home": {
+    "welcome": "Welcome, {{name}}!",
+    "todayCard": "Today's daily puzzle",
+    "todayDescription": "Race the family — fastest time wins.",
+    "playDaily": "Start today's puzzle",
+    "collabCard": "Collab puzzle",
+    "collabDescription": "A bigger puzzle the whole family fills in together.",
+    "joinCollab": "Join or start a session",
+    "leaderboardCard": "Leaderboard",
+    "leaderboardDescription": "Today's and this month's rankings.",
+    "viewLeaderboard": "View"
+  },
+  "puzzle": {
+    "across": "Across",
+    "down": "Down",
+    "check": "Check",
+    "reveal": "Reveal letter",
+    "submit": "Submit",
+    "elapsed": "Elapsed",
+    "completed": "Done! Your time: {{time}}",
+    "errors": "{{count}} wrong letters",
+    "loading": "Loading…",
+    "wrongAnswer": "Some letters are still wrong."
+  },
+  "collab": {
+    "title": "Collab puzzle",
+    "starting": "Starting session…",
+    "online": "Online now",
+    "completed": "Solved together!"
+  },
+  "leaderboard": {
+    "daily": "Daily leaderboard",
+    "monthly": "Monthly leaderboard",
+    "rank": "#",
+    "name": "Name",
+    "time": "Time",
+    "errors": "Errors",
+    "solves": "Solves",
+    "totalTime": "Total time",
+    "empty": "Nobody has solved it yet."
+  },
+  "admin": {
+    "title": "Settings",
+    "createProfile": "Add new profile",
+    "deleteProfile": "Delete",
+    "confirmDelete": "Delete this profile?"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading…",
+    "error": "Something went wrong"
+  }
+}

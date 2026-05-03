@@ -1,0 +1,31 @@
+{
+  "name": "szavak",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Family crossword race — Hungarian-first, classic American grids, solo daily race + live collab",
+  "scripts": {
+    "dev": "concurrently -k -n web,server -c blue,green \"pnpm --filter @szavak/web dev\" \"pnpm --filter @szavak/server dev\"",
+    "build": "pnpm --filter @szavak/shared build && pnpm --filter @szavak/server build && pnpm --filter @szavak/web build",
+    "start": "pnpm --filter @szavak/server start",
+    "test": "pnpm -r test",
+    "db:migrate": "pnpm --filter @szavak/server prisma:migrate",
+    "db:seed": "pnpm --filter @szavak/server seed"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "@prisma/engines",
+      "esbuild",
+      "prisma",
+      "bcrypt"
+    ]
+  }
+}

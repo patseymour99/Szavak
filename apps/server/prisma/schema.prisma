@@ -1,0 +1,75 @@
+// Default to SQLite for local dev (works without Docker). For production
+// switch the provider to "postgresql" and set DATABASE_URL accordingly.
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  pinHash   String
+  color     String
+  isAdmin   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  solves    Solve[]
+  collabs   CollabMember[]
+}
+
+model Puzzle {
+  id        String   @id @default(cuid())
+  kind      String   // "daily" | "collab" | "freeplay"
+  language  String   // "hu" | "en"
+  date      String?  // YYYY-MM-DD for daily puzzles
+  rows      Int
+  cols      Int
+  cellsJson String   // JSON-encoded Cell[]
+  cluesJson String   // JSON-encoded Clue[]
+  createdAt DateTime @default(now())
+  solves    Solve[]
+  sessions  CollabSession[]
+
+  @@unique([kind, language, date], name: "kind_language_date")
+}
+
+model Solve {
+  id          String   @id @default(cuid())
+  profileId   String
+  puzzleId    String
+  startedAt   DateTime
+  completedAt DateTime?
+  reveals     Int      @default(0)
+  checks      Int      @default(0)
+  errors      Int      @default(0)
+  elapsedMs   Int?     // computed including penalties
+  profile     Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  puzzle      Puzzle   @relation(fields: [puzzleId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, puzzleId])
+}
+
+model CollabSession {
+  id        String   @id @default(cuid())
+  puzzleId  String
+  startedAt DateTime @default(now())
+  endedAt   DateTime?
+  /// JSON-encoded letters array (row-major), persisted snapshot
+  lettersJson String  @default("[]")
+  puzzle    Puzzle   @relation(fields: [puzzleId], references: [id], onDelete: Cascade)
+  members   CollabMember[]
+}
+
+model CollabMember {
+  id        String   @id @default(cuid())
+  sessionId String
+  profileId String
+  joinedAt  DateTime @default(now())
+  session   CollabSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  profile   Profile       @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@unique([sessionId, profileId])
+}
