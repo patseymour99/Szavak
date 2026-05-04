@@ -16,13 +16,20 @@ const PROFILE_COLORS = [
 ];
 
 export async function registerProfileRoutes(app: FastifyInstance) {
-  // Public: list profiles for the login picker (id, name, color only — no PIN data).
+  // Public: list profiles for the login picker (id, name, color, hasPin only).
   app.get("/api/profiles", async () => {
-    const profiles = await prisma.profile.findMany({
+    const rows = await prisma.profile.findMany({
       orderBy: { createdAt: "asc" },
-      select: { id: true, name: true, color: true },
+      select: { id: true, name: true, color: true, pinHash: true },
     });
-    return { profiles };
+    return {
+      profiles: rows.map((r) => ({
+        id: r.id,
+        name: r.name,
+        color: r.color,
+        hasPin: r.pinHash !== "",
+      })),
+    };
   });
 
   const CreateBody = z.object({

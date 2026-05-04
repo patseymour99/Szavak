@@ -30,7 +30,13 @@
     "name": "Név",
     "pin": "PIN-kód",
     "create": "Létrehozás",
-    "invalid": "Érvénytelen név vagy PIN-kód."
+    "invalid": "Érvénytelen név vagy PIN-kód.",
+    "needsSetup": "Új — állítsd be a PIN-t",
+    "setupPrompt": "Első belépés: válassz egy 4 jegyű PIN-kódot.",
+    "pinNew": "Új PIN",
+    "pinConfirm": "PIN megerősítése",
+    "pinMismatch": "A két PIN nem egyezik.",
+    "setupSubmit": "Beállítás és belépés"
   },
   "home": {
     "welcome": "Üdv, {{name}}!",

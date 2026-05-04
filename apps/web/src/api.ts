@@ -1,5 +1,9 @@
 import type { DailyLeaderboard, Language, Profile, Puzzle } from "@szavak/shared";
 
+export interface ProfileSummary extends Profile {
+  hasPin: boolean;
+}
+
 async function http<T>(
   path: string,
   init: RequestInit = {},
@@ -24,7 +28,12 @@ export const api = {
       body: JSON.stringify({ profileId, pin }),
     }),
   logout: () => http<{ ok: true }>("/api/auth/logout", { method: "POST" }),
-  listProfiles: () => http<{ profiles: Profile[] }>("/api/profiles"),
+  setupPin: (profileId: string, pin: string) =>
+    http<{ profile: Profile & { isAdmin: boolean } }>("/api/auth/setup-pin", {
+      method: "POST",
+      body: JSON.stringify({ profileId, pin }),
+    }),
+  listProfiles: () => http<{ profiles: ProfileSummary[] }>("/api/profiles"),
   createProfile: (name: string, pin: string, bootstrapPin?: string) =>
     http<{ profile: Profile & { isAdmin: boolean } }>("/api/profiles", {
       method: "POST",

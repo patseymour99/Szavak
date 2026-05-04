@@ -31,15 +31,23 @@ Prereqs: Node 20+, pnpm 10+.
 
 ```bash
 pnpm install
-cd apps/server && DATABASE_URL="file:./prisma/dev.db" pnpm exec prisma migrate dev --name init
+cd apps/server
+DATABASE_URL="file:./dev.db" pnpm exec prisma migrate deploy
+DATABASE_URL="file:./dev.db" pnpm seed     # creates the family profiles
 cd ../..
 pnpm dev   # starts web (5173) + server (3001) concurrently
 ```
 
-Open http://localhost:5173. The first time you load it the app will prompt you
-to create a bootstrap admin profile — use bootstrap PIN `0000` (set via
-`ADMIN_BOOTSTRAP_PIN`). After that, the admin can create the rest of the family
-profiles from the **Settings** page.
+Open http://localhost:5173. The seed creates seven profiles for the family —
+**Andi** (admin), **Blancica**, **Pat**, **Robi**, **Marcsi**, **Jazi**,
+**Zsolesz** — none of them have a PIN yet. Each person picks their own profile
+the first time they sign in and chooses a 4-digit PIN; that PIN is then
+required on subsequent logins.
+
+If the database has *no* profiles at all (e.g. you wiped the DB without
+running the seed), the app falls back to a bootstrap flow: enter a name +
+PIN + the `ADMIN_BOOTSTRAP_PIN` (default `0000`) on the login screen to
+create the first admin profile.
 
 ## Tests
 
@@ -79,7 +87,7 @@ flyctl deploy
 |---|---|---|
 | `PORT` | `3001` | server port |
 | `HOST` | `0.0.0.0` | bind address |
-| `DATABASE_URL` | `file:./prisma/dev.db` | Prisma URL (SQLite or Postgres) |
+| `DATABASE_URL` | `file:./dev.db` | Prisma URL (SQLite or Postgres). SQLite paths resolve relative to `apps/server/prisma/`. |
 | `SESSION_SECRET` | `dev-secret-change-me` | cookie signing secret |
 | `WEB_ORIGIN` | `http://localhost:5173` | allowed CORS origin |
 | `EXTRA_ORIGINS` | `` | comma-separated additional origins |

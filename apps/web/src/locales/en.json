@@ -30,7 +30,13 @@
     "name": "Name",
     "pin": "PIN",
     "create": "Create",
-    "invalid": "Invalid name or PIN."
+    "invalid": "Invalid name or PIN.",
+    "needsSetup": "New — set your PIN",
+    "setupPrompt": "First time here: pick a 4-digit PIN.",
+    "pinNew": "New PIN",
+    "pinConfirm": "Confirm PIN",
+    "pinMismatch": "PINs don't match.",
+    "setupSubmit": "Set PIN & sign in"
   },
   "home": {
     "welcome": "Welcome, {{name}}!",

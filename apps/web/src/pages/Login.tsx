@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { api } from "../api";
+import { api, ProfileSummary } from "../api";
 import { useSession } from "../store";
-import type { Profile } from "@szavak/shared";
 import { Layout } from "../components/Layout";
 
 export default function Login() {
   const { t } = useTranslation();
   const nav = useNavigate();
   const setProfile = useSession((s) => s.setProfile);
-  const [profiles, setProfiles] = useState<Profile[]>([]);
-  const [picked, setPicked] = useState<Profile | null>(null);
+  const [profiles, setProfiles] = useState<ProfileSummary[]>([]);
+  const [picked, setPicked] = useState<ProfileSummary | null>(null);
   const [pin, setPin] = useState("");
+  const [pinConfirm, setPinConfirm] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Bootstrap (no profiles) flow:
+  // Bootstrap (no profiles yet) flow:
   const [bootstrapName, setBootstrapName] = useState("");
   const [bootstrapPin, setBootstrapPin] = useState("");
   const [bootstrapBoot, setBootstrapBoot] = useState("");
@@ -105,7 +105,12 @@ export default function Login() {
           {profiles.map((p) => (
             <button
               key={p.id}
-              onClick={() => setPicked(p)}
+              onClick={() => {
+                setPicked(p);
+                setPin("");
+                setPinConfirm("");
+                setError(null);
+              }}
               className="rounded-xl shadow bg-white p-4 flex flex-col items-center gap-2 hover:shadow-md"
             >
               <div
@@ -115,12 +120,20 @@ export default function Login() {
                 {p.name.slice(0, 1).toLocaleUpperCase("hu-HU")}
               </div>
               <span className="font-medium">{p.name}</span>
+              {!p.hasPin && (
+                <span className="text-[11px] text-slate-500">
+                  {t("login.needsSetup")}
+                </span>
+              )}
             </button>
           ))}
         </div>
       </Layout>
     );
   }
+
+  // Selected profile: either set up a new PIN or sign in with the existing one.
+  const isSetup = !picked.hasPin;
 
   return (
     <Layout>
@@ -134,14 +147,25 @@ export default function Login() {
           </div>
           <div className="font-medium">{picked.name}</div>
         </div>
-        <p className="text-sm text-slate-600 mb-3">{t("login.pinPrompt")}</p>
+        <p className="text-sm text-slate-600 mb-3">
+          {isSetup ? t("login.setupPrompt") : t("login.pinPrompt")}
+        </p>
         <form
           onSubmit={async (e) => {
             e.preventDefault();
             setError(null);
             try {
-              const r = await api.login(picked.id, pin);
-              setProfile(r.profile);
+              if (isSetup) {
+                if (pin !== pinConfirm) {
+                  setError(t("login.pinMismatch"));
+                  return;
+                }
+                const r = await api.setupPin(picked.id, pin);
+                setProfile(r.profile);
+              } else {
+                const r = await api.login(picked.id, pin);
+                setProfile(r.profile);
+              }
               nav("/");
             } catch {
               setError(t("login.invalid"));
@@ -155,9 +179,21 @@ export default function Login() {
             onChange={(e) => setPin(e.target.value.replace(/\D/g, "").slice(0, 4))}
             inputMode="numeric"
             pattern="\d{4}"
+            placeholder={isSetup ? t("login.pinNew") : ""}
             className="block w-full border rounded px-3 py-2 text-center text-2xl tracking-[0.5em] font-mono"
             required
           />
+          {isSetup && (
+            <input
+              value={pinConfirm}
+              onChange={(e) => setPinConfirm(e.target.value.replace(/\D/g, "").slice(0, 4))}
+              inputMode="numeric"
+              pattern="\d{4}"
+              placeholder={t("login.pinConfirm")}
+              className="block w-full border rounded px-3 py-2 text-center text-2xl tracking-[0.5em] font-mono"
+              required
+            />
+          )}
           {error && <p className="text-sm text-rose-600">{error}</p>}
           <div className="flex gap-2">
             <button
@@ -165,13 +201,15 @@ export default function Login() {
               onClick={() => {
                 setPicked(null);
                 setPin("");
+                setPinConfirm("");
+                setError(null);
               }}
               className="flex-1 border rounded py-1.5"
             >
               {t("login.back")}
             </button>
             <button className="flex-1 bg-slate-900 text-white rounded py-1.5">
-              {t("login.submit")}
+              {isSetup ? t("login.setupSubmit") : t("login.submit")}
             </button>
           </div>
         </form>

@@ -1,19 +1,32 @@
 import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
+const FAMILY: Array<{ name: string; color: string; isAdmin?: boolean }> = [
+  { name: "Andi", color: "#ef4444", isAdmin: true },
+  { name: "Blancica", color: "#f59e0b" },
+  { name: "Pat", color: "#10b981" },
+  { name: "Robi", color: "#3b82f6" },
+  { name: "Marcsi", color: "#8b5cf6" },
+  { name: "Jazi", color: "#ec4899" },
+  { name: "Zsolesz", color: "#14b8a6" },
+];
+
 async function main() {
-  const count = await prisma.profile.count();
-  if (count > 0) {
-    console.log(`Skipping seed: ${count} profiles already exist.`);
-    return;
+  for (const member of FAMILY) {
+    const existing = await prisma.profile.findUnique({ where: { name: member.name } });
+    if (existing) continue;
+    await prisma.profile.create({
+      data: {
+        name: member.name,
+        // Empty pinHash means "PIN not set yet"; the picker will show a setup form.
+        pinHash: "",
+        color: member.color,
+        isAdmin: member.isAdmin ?? false,
+      },
+    });
+    console.log(`seeded profile: ${member.name}${member.isAdmin ? " (admin)" : ""}`);
   }
-  const pinHash = await bcrypt.hash("1234", 8);
-  await prisma.profile.create({
-    data: { name: "Admin", pinHash, color: "#3b82f6", isAdmin: true },
-  });
-  console.log("Seeded admin profile (name: Admin, PIN: 1234). Change after first login!");
 }
 
 main()

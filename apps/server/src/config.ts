@@ -3,7 +3,7 @@ import { z } from "zod";
 const Env = z.object({
   PORT: z.coerce.number().int().positive().default(3001),
   HOST: z.string().default("0.0.0.0"),
-  DATABASE_URL: z.string().default("file:./prisma/dev.db"),
+  DATABASE_URL: z.string().default("file:./dev.db"),
   SESSION_SECRET: z.string().default("dev-secret-change-me"),
   WEB_ORIGIN: z.string().default("http://localhost:5173"),
   /** comma-separated allowed origins for CORS in addition to WEB_ORIGIN */
