@@ -70,16 +70,59 @@ compiled React app (`/`).
 
 ## Deploying to Fly.io
 
+This repo's `Dockerfile` and `fly.toml` deploy the whole app — web, API,
+Socket.IO, and the daily cron — as one Fly app backed by a SQLite file on a
+persistent volume. (Vercel can't host this stack: serverless functions don't
+support long-lived Socket.IO connections, scheduled jobs, or a local DB.)
+
+One-time setup:
+
 ```bash
-flyctl launch --copy-config            # uses the included fly.toml + Dockerfile
+# 1. Install flyctl (https://fly.io/docs/hands-on/install-flyctl/)
+brew install flyctl                         # or curl-based installer
+
+# 2. Sign in
+flyctl auth signup                          # or `flyctl auth login`
+
+# 3. Create the app, copying the included fly.toml.
+#    Pick a unique app name when prompted (e.g. "szavak-csaladi"); update
+#    the `app = "..."` line and the `WEB_ORIGIN` URL in fly.toml to match.
+flyctl launch --copy-config --no-deploy
+
+# 4. Persistent volume for the SQLite DB (1 GB is way more than enough)
+flyctl volumes create szavak_data --size 1 --region fra
+
+# 5. Set production secrets (these aren't checked into the repo)
 flyctl secrets set \
   SESSION_SECRET="$(openssl rand -hex 32)" \
-  ADMIN_BOOTSTRAP_PIN=1234 \
-  DATABASE_URL="file:/data/szavak.db"   # or a Postgres URL
-flyctl volumes create szavak_data --size 1   # if using SQLite
-# uncomment the [mounts] section in fly.toml first
+  ADMIN_BOOTSTRAP_PIN=1234
+
+# 6. First deploy — builds the Docker image, runs Prisma migrations, seeds
+#    the seven family profiles, then starts the server.
 flyctl deploy
+flyctl open                                 # opens the app in your browser
 ```
+
+Subsequent updates: just `git push` to the branch you deploy from, then
+`flyctl deploy`. The seed script is idempotent — already-existing profiles
+are kept; new family members added to `apps/server/src/db/seed.ts` are
+created on the next deploy.
+
+### Switching to Postgres (optional)
+
+SQLite is fine for ~7 users, but if you'd rather use Fly Postgres:
+
+```bash
+flyctl postgres create --name szavak-db --region fra
+flyctl postgres attach szavak-db
+# `attach` sets DATABASE_URL automatically; remove the DATABASE_URL line
+# from fly.toml so the secret isn't shadowed.
+```
+
+Then change `apps/server/prisma/schema.prisma`'s
+`provider = "sqlite"` to `provider = "postgresql"` and rerun
+`pnpm exec prisma migrate dev --name init_pg` locally to regenerate the
+migration before redeploying.
 
 ## Environment
 
@@ -94,13 +137,6 @@ flyctl deploy
 | `ADMIN_BOOTSTRAP_PIN` | `0000` | gates first profile creation |
 | `TIMEZONE` | `Europe/Budapest` | used for the daily-puzzle cutover |
 | `NODE_ENV` | `development` | |
-
-## Switching to Postgres
-
-1. Edit `apps/server/prisma/schema.prisma`, change `provider = "sqlite"` to
-   `provider = "postgresql"`.
-2. Set `DATABASE_URL` to your Postgres URL.
-3. `cd apps/server && pnpm exec prisma migrate dev --name init_pg`.
 
 ## Known v1 limitations
 

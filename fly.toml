@@ -1,6 +1,9 @@
-# fly.toml — sample deployment config for Fly.io
-# Set DATABASE_URL via `fly secrets set` (e.g., a Fly Postgres or external Postgres).
-# To use SQLite instead, attach a volume and set DATABASE_URL=file:/data/szavak.db.
+# fly.toml — Szavak deployment
+# After `flyctl launch --copy-config` set:
+#   flyctl secrets set SESSION_SECRET="$(openssl rand -hex 32)" \
+#                      ADMIN_BOOTSTRAP_PIN=1234
+#   flyctl volumes create szavak_data --size 1 --region fra
+#   flyctl deploy
 
 app = "szavak"
 primary_region = "fra"
@@ -13,6 +16,12 @@ primary_region = "fra"
   HOST = "0.0.0.0"
   TIMEZONE = "Europe/Budapest"
   NODE_ENV = "production"
+  # SQLite database lives on the persistent volume so it survives deploys.
+  DATABASE_URL = "file:/data/szavak.db"
+  # The web app and API are served from the same origin, so CORS only needs
+  # to allow the Fly URL itself; set to an explicit URL after `flyctl launch`
+  # if you change app name.
+  WEB_ORIGIN = "https://szavak.fly.dev"
 
 [http_service]
   internal_port = 3001
@@ -26,7 +35,6 @@ primary_region = "fra"
   cpus = 1
   memory_mb = 512
 
-# Uncomment to mount a volume for SQLite:
-# [mounts]
-#   source = "szavak_data"
-#   destination = "/data"
+[mounts]
+  source = "szavak_data"
+  destination = "/data"

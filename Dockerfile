@@ -35,4 +35,6 @@ COPY --from=build /app/data ./data
 
 EXPOSE 3001
 WORKDIR /app/apps/server
-CMD ["sh", "-c", "pnpm exec prisma migrate deploy && node dist/index.js"]
+# On boot: apply pending Prisma migrations, idempotently seed the family
+# profiles, then start the server.
+CMD ["sh", "-c", "pnpm exec prisma migrate deploy && node dist/db/seed.js && node dist/index.js"]
