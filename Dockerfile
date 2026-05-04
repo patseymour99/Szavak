@@ -22,6 +22,10 @@ RUN pnpm --filter @szavak/web build
 FROM base AS runtime
 ENV NODE_ENV=production
 WORKDIR /app
+# /data is the SQLite location (file:/data/szavak.db). When a Fly volume is
+# mounted here it persists; when none is mounted, /data is just a writable
+# directory in the container so the DB still works (just ephemerally).
+RUN mkdir -p /data
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/package.json /app/pnpm-workspace.yaml ./
 COPY --from=build /app/packages/shared/dist ./packages/shared/dist
