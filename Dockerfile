@@ -1,5 +1,11 @@
 # syntax=docker/dockerfile:1.7
 FROM node:22-bookworm-slim AS base
+# Prisma's schema/query engines link against libssl at runtime; the slim
+# Node image doesn't ship openssl, which makes `prisma migrate deploy`
+# fail with "Schema engine error" on first boot.
+RUN apt-get update -y \
+  && apt-get install -y --no-install-recommends openssl ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
 ENV PNPM_HOME=/root/.local/share/pnpm
 ENV PATH=$PNPM_HOME:$PATH
 RUN corepack enable && corepack prepare pnpm@10.33.0 --activate
