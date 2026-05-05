@@ -14,14 +14,37 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
   const loc = useLocation();
 
+  const [authError, setAuthError] = useState<string | null>(null);
+
   useEffect(() => {
-    api.me().then((r) => {
-      setProfile(r.profile);
-      setLoaded(true);
-    });
+    api
+      .me()
+      .then((r) => setProfile(r.profile))
+      .catch((err) => {
+        console.error("/api/auth/me failed:", err);
+        setAuthError(err instanceof Error ? err.message : String(err));
+        setProfile(null);
+      })
+      .finally(() => setLoaded(true));
   }, [setProfile]);
 
-  if (!loaded) return null;
+  if (!loaded) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-slate-500">
+        Betöltés…
+      </div>
+    );
+  }
+
+  if (authError) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-6">
+        <pre className="bg-red-50 text-red-800 p-4 rounded text-xs max-w-xl whitespace-pre-wrap">
+          API error talking to /api/auth/me — {authError}
+        </pre>
+      </div>
+    );
+  }
 
   const requireAuth = (el: JSX.Element) =>
     profile ? el : <Navigate to="/login" state={{ from: loc }} replace />;
