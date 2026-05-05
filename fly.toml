@@ -1,57 +1,29 @@
-# fly.toml — Szavak deployment
+# fly.toml app configuration file generated for szavak on 2026-05-05T08:45:35Z
 #
-# # Easiest path: Fly's GitHub launcher (no terminal needed)
-#   1. fly.io/dashboard → Launch an App → pick patseymour99/Szavak →
-#      branch `claude/multiplayer-crossword-app-pUo1D`
-#   2. Pick an app name in the form (the global Fly namespace will tell
-#      you if it's already taken).
-#   3. Click Deploy. The app will boot with an *ephemeral* SQLite DB —
-#      enough to test, but family progress is lost on every redeploy/
-#      restart.
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
-# # When you want data to stick around (one-time, needs `flyctl` from a laptop):
-#   flyctl volumes create szavak_data --size 1 --region fra
-#   flyctl secrets set SESSION_SECRET="$(openssl rand -hex 32)" \
-#                      ADMIN_BOOTSTRAP_PIN=1234
-#   # then uncomment the [mounts] block at the bottom of this file and
-#   `flyctl deploy`
-#
-# `flyctl launch` (or the GitHub launcher) writes the chosen app name
-# into the `app = "..."` line. Leave it blank otherwise.
 
-primary_region = "fra"
+app = 'szavak'
+primary_region = 'ams'
 
 [build]
-  dockerfile = "Dockerfile"
+  dockerfile = 'Dockerfile'
 
 [env]
-  PORT = "3001"
-  HOST = "0.0.0.0"
-  TIMEZONE = "Europe/Budapest"
-  NODE_ENV = "production"
-  # SQLite DB lives at /data/szavak.db. The Dockerfile creates /data so
-  # this works whether or not a volume is actually mounted there. Mount
-  # the volume (see [mounts] below) once you want the DB to survive
-  # restarts.
-  DATABASE_URL = "file:/data/szavak.db"
-  # Web app and API share the same Fly host, so the browser sends no
-  # Origin header and CORS is a no-op. Only set WEB_ORIGIN if you split
-  # the web and API across different hostnames.
+  DATABASE_URL = 'file:/data/szavak.db'
+  HOST = '0.0.0.0'
+  NODE_ENV = 'production'
+  PORT = '3001'
+  TIMEZONE = 'Europe/Budapest'
 
 [http_service]
-  internal_port = 3001
+  internal_port = 8080
   force_https = true
-  auto_stop_machines = "stop"
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
 
 [[vm]]
-  cpu_kind = "shared"
+  cpu_kind = 'shared'
   cpus = 1
   memory_mb = 512
-
-# Uncomment after creating the volume with:
-#   flyctl volumes create szavak_data --size 1 --region fra
-# [mounts]
-#   source = "szavak_data"
-#   destination = "/data"
