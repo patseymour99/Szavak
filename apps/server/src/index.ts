@@ -39,8 +39,10 @@ async function main() {
   const __dirname = path.dirname(__filename);
   const webDist = path.resolve(__dirname, "../../web/dist");
   if (existsSync(webDist)) {
-    await app.register(staticPlugin, { root: webDist, prefix: "/", wildcard: false });
-    // SPA fallback: any non-API GET returns index.html so client-side routing works.
+    // wildcard: true (default) registers a `/*` route so nested files like
+    // /assets/index-XXXX.js are served. Falls through to the notFoundHandler
+    // below for unknown paths, which serves index.html for SPA routing.
+    await app.register(staticPlugin, { root: webDist, prefix: "/" });
     app.setNotFoundHandler((req, reply) => {
       if (req.method === "GET" && !req.url.startsWith("/api") && !req.url.startsWith("/socket.io")) {
         reply.type("text/html").sendFile("index.html");
