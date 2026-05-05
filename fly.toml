@@ -17,7 +17,8 @@ primary_region = 'ams'
   TIMEZONE = 'Europe/Budapest'
 
 [http_service]
-  internal_port = 8080
+  # Must match PORT above — the server listens on 3001.
+  internal_port = 3001
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
