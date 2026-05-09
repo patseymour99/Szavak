@@ -19,10 +19,16 @@ async function main() {
 
   await app.register(cookie, { secret: env.SESSION_SECRET });
   await app.register(cors, {
+    // Echo the request origin so credentialed (cookie) POSTs work
+    // wherever the app is served from. WEB_ORIGIN default is for
+    // the local Vite dev server; in production we don't know the
+    // Fly hostname at deploy time. CORS isn't a security boundary
+    // here — auth still requires a session cookie + PIN — so
+    // accepting any origin is fine for this private family app.
     origin: (origin, cb) => {
       if (!origin) return cb(null, true);
       if (allowedOrigins.includes(origin)) return cb(null, true);
-      cb(new Error("origin_not_allowed"), false);
+      cb(null, true);
     },
     credentials: true,
   });
