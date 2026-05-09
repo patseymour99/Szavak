@@ -6,61 +6,64 @@
     <title>Szavak — családi keresztrejtvény</title>
     <script>
       // Surface module-load failures inline since iPad has no devtools.
+      // Using textContent (not innerHTML) so the bundle's `<` chars don't
+      // get parsed as HTML and eat the diagnostic output.
       function showFatal(label, detail) {
         var root = document.getElementById("root");
         if (!root) return;
-        root.innerHTML =
-          '<pre style="padding:24px;color:#b91c1c;white-space:pre-wrap;font:13px ui-monospace,monospace">' +
-          label + "\n" + detail + "</pre>";
+        root.innerHTML = "";
+        var pre = document.createElement("pre");
+        pre.style.cssText =
+          "padding:24px;color:#b91c1c;white-space:pre-wrap;font:13px ui-monospace,monospace";
+        pre.textContent = label + "\n" + detail;
+        root.appendChild(pre);
       }
-      // capture=true so we catch resource (script/link) load failures, which
-      // don't bubble. Without this, a 404 on the module script is silent.
+      window.__diag = { events: [] };
+      function logEvent(msg) {
+        window.__diag.events.push(new Date().toISOString().slice(11, 19) + " " + msg);
+      }
+      // capture=true so we catch resource load failures (which don't bubble).
       window.addEventListener("error", function (e) {
         var t = e.target;
         if (t && (t.tagName === "SCRIPT" || t.tagName === "LINK")) {
-          showFatal("Resource failed to load", t.tagName + " " + (t.src || t.href));
+          logEvent("resource error: " + t.tagName + " " + (t.src || t.href));
         } else {
-          showFatal(
-            "JS error",
-            (e.message || "unknown") +
-              "\nat " + (e.filename || "?") + ":" + (e.lineno || "?") + ":" + (e.colno || "?"),
-          );
+          logEvent("js error: " + (e.message || "unknown") + " at " + (e.filename || "?") + ":" + (e.lineno || "?"));
         }
       }, true);
       window.addEventListener("unhandledrejection", function (e) {
         var r = e.reason;
-        showFatal(
-          "Unhandled promise rejection",
-          (r && (r.stack || r.message)) || String(r),
-        );
+        logEvent("unhandledrejection: " + ((r && (r.stack || r.message)) || String(r)));
       });
-      // If the React app never sets the mounted flag within 4s, fetch the
-      // module script ourselves and report what the server actually returned.
+      // After 4s, dump a complete diagnostic: deployed HTML inspection,
+      // dynamic import attempt (different code path than <script type=module>),
+      // and any captured events.
       setTimeout(function () {
-        if (document.documentElement.dataset.appMounted === "yes") return;
-        var s = document.querySelector('script[type="module"]');
-        if (!s || !s.src) {
-          showFatal("Diagnostic", "No module script element found in HTML.");
+        if (document.documentElement.dataset.appMounted === "yes") {
+          logEvent("appMounted=yes — app is fine");
           return;
         }
-        fetch(s.src)
-          .then(function (r) {
-            var ct = r.headers.get("content-type") || "(none)";
-            return r.text().then(function (t) {
-              showFatal(
-                "App did not mount within 4s",
-                "Module URL: " + s.src + "\n" +
-                  "Status: " + r.status + " " + r.statusText + "\n" +
-                  "Content-Type: " + ct + "\n" +
-                  "First 300 chars of body:\n" + t.slice(0, 300),
-              );
-            });
+        var s = document.querySelector('script[type="module"]');
+        var info = [
+          "UA: " + navigator.userAgent,
+          "Origin: " + location.origin,
+          "Module script in DOM: " + (s ? "yes" : "NO"),
+          "Module src: " + (s && s.src),
+          "crossorigin attr: " + (s && s.hasAttribute("crossorigin") ? "PRESENT (" + (s.getAttribute("crossorigin") || "empty") + ")" : "absent"),
+          "Captured events: " + (window.__diag.events.length === 0 ? "(none — no errors fired)" : ""),
+        ].concat(window.__diag.events).join("\n");
+        if (!s || !s.src) { showFatal("Diagnostic", info); return; }
+        // Try a dynamic import as a different way to load the module.
+        // If <script type=module> failed silently, this surfaces a real error.
+        import(s.src + "?diag=" + Date.now())
+          .then(function () {
+            logEvent("dynamic import resolved (but main.tsx never set appMounted)");
+            info = info + "\n\nDynamic import: SUCCEEDED but didn't run main.tsx code";
+            showFatal("App did not mount within 4s", info);
           })
-          .catch(function (e) {
-            showFatal(
-              "App did not mount; fetch of module URL failed",
-              "Module URL: " + s.src + "\nError: " + (e && (e.message || e)),
-            );
+          .catch(function (err) {
+            info = info + "\n\nDynamic import FAILED:\n" + ((err && (err.stack || err.message)) || String(err));
+            showFatal("App did not mount within 4s", info);
           });
       }, 4000);
     </script>
