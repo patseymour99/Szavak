@@ -35,36 +35,30 @@
         var r = e.reason;
         logEvent("unhandledrejection: " + ((r && (r.stack || r.message)) || String(r)));
       });
-      // After 4s, dump a complete diagnostic: deployed HTML inspection,
-      // dynamic import attempt (different code path than <script type=module>),
-      // and any captured events.
+      // After 4s, dump a complete diagnostic. We check both the
+      // dataset flag and whether #root still holds the fallback DOM —
+      // if the flag is set but the fallback is still visible, the
+      // bundle started but React's render commit silently failed.
       setTimeout(function () {
-        if (document.documentElement.dataset.appMounted === "yes") {
-          logEvent("appMounted=yes — app is fine");
-          return;
+        var mounted = document.documentElement.dataset.appMounted;
+        var rootEl = document.getElementById("root");
+        var stillHasFallback =
+          rootEl && rootEl.innerHTML.indexOf("Próbáld újratölteni") >= 0;
+        if (mounted === "yes" && !stillHasFallback && window.__diag.events.length === 0) {
+          return; // App is healthy.
         }
-        var s = document.querySelector('script[type="module"]');
+        var s = document.querySelector("script[src*='assets/index-']");
         var info = [
           "UA: " + navigator.userAgent,
           "Origin: " + location.origin,
-          "Module script in DOM: " + (s ? "yes" : "NO"),
-          "Module src: " + (s && s.src),
-          "crossorigin attr: " + (s && s.hasAttribute("crossorigin") ? "PRESENT (" + (s.getAttribute("crossorigin") || "empty") + ")" : "absent"),
-          "Captured events: " + (window.__diag.events.length === 0 ? "(none — no errors fired)" : ""),
+          "appMounted flag: " + (mounted || "(unset)"),
+          "fallback still visible: " + (stillHasFallback ? "yes" : "no"),
+          "Script tag in DOM: " + (s ? "yes" : "NO"),
+          "Script src: " + (s && (s.src || s.getAttribute("src"))),
+          "Script type attr: " + (s && (s.getAttribute("type") || "(none — classic)")),
+          "Captured events: " + (window.__diag.events.length === 0 ? "(none)" : ""),
         ].concat(window.__diag.events).join("\n");
-        if (!s || !s.src) { showFatal("Diagnostic", info); return; }
-        // Try a dynamic import as a different way to load the module.
-        // If <script type=module> failed silently, this surfaces a real error.
-        import(s.src + "?diag=" + Date.now())
-          .then(function () {
-            logEvent("dynamic import resolved (but main.tsx never set appMounted)");
-            info = info + "\n\nDynamic import: SUCCEEDED but didn't run main.tsx code";
-            showFatal("App did not mount within 4s", info);
-          })
-          .catch(function (err) {
-            info = info + "\n\nDynamic import FAILED:\n" + ((err && (err.stack || err.message)) || String(err));
-            showFatal("App did not mount within 4s", info);
-          });
+        showFatal("Diagnostic", info);
       }, 4000);
     </script>
   </head>
