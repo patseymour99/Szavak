@@ -4,6 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <title>Szavak — családi keresztrejtvény</title>
+    <script>
+      // Surface module-load failures inline since iPad has no devtools.
+      function showFatal(label, detail) {
+        var root = document.getElementById("root");
+        if (!root) return;
+        root.innerHTML =
+          '<pre style="padding:24px;color:#b91c1c;white-space:pre-wrap;font:13px ui-monospace,monospace">' +
+          label + "\n" + detail + "</pre>";
+      }
+      window.addEventListener("error", function (e) {
+        showFatal(
+          "JS error",
+          (e.message || "unknown") +
+            "\nat " + (e.filename || "?") + ":" + (e.lineno || "?") + ":" + (e.colno || "?"),
+        );
+      });
+      window.addEventListener("unhandledrejection", function (e) {
+        var r = e.reason;
+        showFatal(
+          "Unhandled promise rejection",
+          (r && (r.stack || r.message)) || String(r),
+        );
+      });
+    </script>
   </head>
   <body class="bg-slate-50 text-slate-900">
     <div id="root">
