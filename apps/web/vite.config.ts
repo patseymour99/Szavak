@@ -1,22 +1,39 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// Vite stamps `crossorigin` onto every <script type="module"> and
-// <link rel="stylesheet"> in the built index.html. That forces the
-// browser into CORS mode for the request, which on iPad WebKit causes
-// the bundle to be downloaded but silently never executed (no error
-// event, no console — just a blank page) when ACAO headers aren't
-// returned. We have no SRI or CDN here, so the attribute is pure
-// downside; strip it.
-const stripCrossorigin = {
-  name: "strip-crossorigin",
+// Strip `crossorigin` and `type="module"` from the built index.html so
+// the bundle loads as a classic <script>. iPad WebKit's module loader
+// silently rejects same-origin module fetches in some configurations
+// ("Importing a module script failed" with no useful detail). Combined
+// with the IIFE output below, the bundle becomes a regular script that
+// just runs.
+const buildAsClassicScript = {
+  name: "build-as-classic-script",
+  enforce: "post" as const,
   transformIndexHtml(html: string) {
-    return html.replace(/\s+crossorigin(=["'][^"']*["'])?/g, "");
+    return html
+      .replace(/\s+crossorigin(=["'][^"']*["'])?/g, "")
+      .replace(/\s+type="module"/g, "");
   },
 };
 
 export default defineConfig({
-  plugins: [react(), stripCrossorigin],
+  plugins: [react(), buildAsClassicScript],
+  build: {
+    // Single-file IIFE output. Vite's default ESM output with code
+    // splitting produces <script type="module"> + chunk imports, which
+    // is what triggers the WebKit failure. IIFE bundles everything into
+    // one classic script.
+    rollupOptions: {
+      output: {
+        format: "iife",
+        inlineDynamicImports: true,
+        entryFileNames: "assets/[name]-[hash].js",
+        chunkFileNames: "assets/[name]-[hash].js",
+        assetFileNames: "assets/[name]-[hash][extname]",
+      },
+    },
+  },
   server: {
     port: 5173,
     proxy: {
