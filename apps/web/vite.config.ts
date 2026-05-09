@@ -1,19 +1,20 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// Strip `crossorigin` and `type="module"` from the built index.html so
-// the bundle loads as a classic <script>. iPad WebKit's module loader
-// silently rejects same-origin module fetches in some configurations
-// ("Importing a module script failed" with no useful detail). Combined
-// with the IIFE output below, the bundle becomes a regular script that
-// just runs.
+// Strip `crossorigin` from the built index.html and swap `type="module"`
+// for `defer` so the bundle loads as a deferred classic <script>. iPad
+// WebKit's module loader silently rejects same-origin module fetches
+// ("Importing a module script failed"), and a plain non-deferred script
+// runs before <body> exists, which crashes createRoot. Deferred classic
+// matches module semantics (executes after HTML parse) without going
+// through the broken module path.
 const buildAsClassicScript = {
   name: "build-as-classic-script",
   enforce: "post" as const,
   transformIndexHtml(html: string) {
     return html
       .replace(/\s+crossorigin(=["'][^"']*["'])?/g, "")
-      .replace(/\s+type="module"/g, "");
+      .replace(/\s+type="module"/g, " defer");
   },
 };
 
