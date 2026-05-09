@@ -41,14 +41,42 @@ async function main() {
   if (existsSync(webDist)) {
     // wildcard: true (default) registers a `/*` route so nested files like
     // /assets/index-XXXX.js are served. Falls through to the notFoundHandler
-    // below for unknown paths, which serves index.html for SPA routing.
+    // below for unknown paths.
     await app.register(staticPlugin, { root: webDist, prefix: "/" });
     app.setNotFoundHandler((req, reply) => {
-      if (req.method === "GET" && !req.url.startsWith("/api") && !req.url.startsWith("/socket.io")) {
-        reply.type("text/html").sendFile("index.html");
+      if (req.method !== "GET" || req.url.startsWith("/api") || req.url.startsWith("/socket.io")) {
+        reply.code(404).send({ error: "not_found", url: req.url });
         return;
       }
-      reply.code(404).send({ error: "not_found" });
+      // SPA fallback: only return index.html for extension-less paths
+      // (which look like client-side routes). Real asset requests like
+      // /assets/foo.js must return 404 if the file is genuinely missing,
+      // not HTML — otherwise a deploy mismatch produces a silent failure.
+      const last = req.url.split("?")[0].split("/").pop() || "";
+      if (last.includes(".")) {
+        reply.code(404).send({ error: "not_found", url: req.url });
+        return;
+      }
+      reply.type("text/html").sendFile("index.html");
+    });
+
+    // Quick diagnostic: list what files actually shipped with the runtime
+    // image. Invoking /api/debug/assets returns the dist tree, so we can
+    // tell the difference between "Vite emitted a different hash than the
+    // HTML references" and "the file is there but routing isn't matching".
+    app.get("/api/debug/assets", async () => {
+      const { readdir } = await import("node:fs/promises");
+      const root = webDist;
+      const top = await readdir(root, { withFileTypes: true });
+      const out: Record<string, string[]> = { ".": [] };
+      for (const e of top) {
+        if (e.isDirectory()) {
+          out[e.name] = await readdir(path.join(root, e.name));
+        } else {
+          out["."].push(e.name);
+        }
+      }
+      return { webDist, files: out };
     });
   }
 
