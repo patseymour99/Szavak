@@ -42,7 +42,18 @@ async function main() {
     // wildcard: true (default) registers a `/*` route so nested files like
     // /assets/index-XXXX.js are served. Falls through to the notFoundHandler
     // below for unknown paths.
-    await app.register(staticPlugin, { root: webDist, prefix: "/" });
+    // setHeaders sends ACAO:* on every static response. Vite emits the
+    // index.html with `crossorigin` on its <script type="module"> and
+    // <link rel="stylesheet"> tags, which forces CORS mode even for
+    // same-origin URLs in some browsers; without ACAO the resource is
+    // rejected and React never mounts.
+    await app.register(staticPlugin, {
+      root: webDist,
+      prefix: "/",
+      setHeaders(res) {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+      },
+    });
     app.setNotFoundHandler((req, reply) => {
       if (req.method !== "GET" || req.url.startsWith("/api") || req.url.startsWith("/socket.io")) {
         reply.code(404).send({ error: "not_found", url: req.url });
