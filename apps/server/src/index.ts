@@ -42,18 +42,14 @@ async function main() {
     // wildcard: true (default) registers a `/*` route so nested files like
     // /assets/index-XXXX.js are served. Falls through to the notFoundHandler
     // below for unknown paths.
-    // setHeaders sends ACAO:* on every static response. Vite emits the
-    // index.html with `crossorigin` on its <script type="module"> and
-    // <link rel="stylesheet"> tags, which forces CORS mode even for
-    // same-origin URLs in some browsers; without ACAO the resource is
-    // rejected and React never mounts.
-    await app.register(staticPlugin, {
-      root: webDist,
-      prefix: "/",
-      setHeaders(res) {
-        res.setHeader("Access-Control-Allow-Origin", "*");
-      },
-    });
+    // No setHeaders here on purpose. Module-script fetches use
+    // mode=cors + credentials=same-origin, and WebKit rejects a
+    // wildcard ACAO header on credentialed requests even when the
+    // URL is same-origin — which is what was making the module
+    // silently fail to import on iPad. With no CORS headers, the
+    // browser treats the same-origin response as basic (no CORS
+    // check), and the bundle executes.
+    await app.register(staticPlugin, { root: webDist, prefix: "/" });
     app.setNotFoundHandler((req, reply) => {
       if (req.method !== "GET" || req.url.startsWith("/api") || req.url.startsWith("/socket.io")) {
         reply.code(404).send({ error: "not_found", url: req.url });
