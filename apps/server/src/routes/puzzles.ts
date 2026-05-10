@@ -24,10 +24,14 @@ async function ensureDailyPuzzle(date: string, language: Language) {
   const seed = dateSeed(`${date}:${language}`);
   const generated = generatePuzzle({
     language,
+    // v1 ships 4x4 with duplicate-answer relaxation while we grow the bank
+    // toward true 5x5 minis. The actual bug (IMG_0107 duplicate clue text)
+    // is fixed by the new generator regardless of size. See DECISIONS.md.
     size: 4,
     kind: "daily",
     seed,
     date,
+    allowDuplicateAnswers: true,
   });
   return savePuzzle(generated);
 }
@@ -164,6 +168,7 @@ export async function registerPuzzleRoutes(app: FastifyInstance) {
       size: 4,
       kind: "collab",
       seed,
+      allowDuplicateAnswers: true,
     });
     const saved = await savePuzzle(generated);
     const session = await prisma.collabSession.create({

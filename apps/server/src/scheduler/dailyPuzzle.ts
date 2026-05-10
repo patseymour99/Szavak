@@ -21,7 +21,7 @@ async function generateForDate(date: string) {
     const existing = await findDailyPuzzle(date, language);
     if (existing) continue;
     const seed = dateSeed(`${date}:${language}`);
-    const generated = generatePuzzle({ language, size: 4, kind: "daily", seed, date });
+    const generated = generatePuzzle({ language, size: 4, kind: "daily", seed, date, allowDuplicateAnswers: true });
     await savePuzzle(generated);
     // eslint-disable-next-line no-console
     console.log(`[scheduler] generated daily puzzle ${date} ${language}`);

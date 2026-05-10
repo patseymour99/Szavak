@@ -1,0 +1,877 @@
+{
+  "language": "hu",
+  "_note": "Curated bank for Phase 1. Each entry has >=2 clues so the generator never has to reuse a clue text within a puzzle. Voice should be reviewed by a native speaker before launch. Answers are uppercase, single Unicode char per cell (SZ is two cells, in line with grid model).",
+  "entries": [
+    { "answer": "ALMA", "frequency": 95, "clues": [
+      { "text": "Tavaszi piros, magvas gyümölcs", "difficulty": 1 },
+      { "text": "Newtont állítólag fejbe kólintotta", "difficulty": 2 },
+      { "text": "A tudás fája rajta termett", "difficulty": 2 }
+    ]},
+    { "answer": "TETŐ", "frequency": 85, "clues": [
+      { "text": "Ház felső fedele", "difficulty": 1 },
+      { "text": "Cserép borítja", "difficulty": 1 },
+      { "text": "Kéménnyel együtt jár", "difficulty": 2 }
+    ]},
+    { "answer": "ÖRÖM", "frequency": 90, "clues": [
+      { "text": "Boldogság érzése", "difficulty": 1 },
+      { "text": "Karácsonyi alapérzelem", "difficulty": 2 },
+      { "text": "Mosolyt fakaszt", "difficulty": 1 }
+    ]},
+    { "answer": "HEGY", "frequency": 88, "clues": [
+      { "text": "Magaslat a tájban", "difficulty": 1 },
+      { "text": "Mátra vagy Bükk", "difficulty": 2 },
+      { "text": "Csúcsa van", "difficulty": 1 }
+    ]},
+    { "answer": "FOLYÓ", "frequency": 92, "clues": [
+      { "text": "Duna, Tisza, Rába típusa", "difficulty": 1 },
+      { "text": "Tengerbe tartó víz", "difficulty": 2 },
+      { "text": "Budapestet kettészeli", "difficulty": 2 }
+    ]},
+    { "answer": "SZÉL", "frequency": 85, "clues": [
+      { "text": "Levegő mozgása", "difficulty": 1 },
+      { "text": "Vihar előhírnöke", "difficulty": 2 },
+      { "text": "Vitorlát feszít", "difficulty": 2 }
+    ]},
+    { "answer": "KENYÉR", "frequency": 95, "clues": [
+      { "text": "Pék reggeli terméke", "difficulty": 1 },
+      { "text": "Magyar étkezés alapja", "difficulty": 1 },
+      { "text": "Asztalra szelik", "difficulty": 2 }
+    ]},
+    { "answer": "VAJ", "frequency": 80, "clues": [
+      { "text": "Tejszínből köpült kenhető zsiradék", "difficulty": 1 },
+      { "text": "Pirítósra való", "difficulty": 1 }
+    ]},
+    { "answer": "TEJ", "frequency": 92, "clues": [
+      { "text": "Tehén ajándéka", "difficulty": 1 },
+      { "text": "Reggeli fehér ital", "difficulty": 1 },
+      { "text": "Kakaóhoz kell", "difficulty": 2 }
+    ]},
+    { "answer": "SAJT", "frequency": 88, "clues": [
+      { "text": "Tejből érlelt étel", "difficulty": 1 },
+      { "text": "Lyukas vagy nem", "difficulty": 2 },
+      { "text": "Ementáli típusa", "difficulty": 2 }
+    ]},
+    { "answer": "TOJÁS", "frequency": 85, "clues": [
+      { "text": "Tyúk reggeli ajándéka", "difficulty": 1 },
+      { "text": "Húsvéti festett csemege", "difficulty": 1 },
+      { "text": "Lágy vagy kemény főtt", "difficulty": 2 }
+    ]},
+    { "answer": "HÚS", "frequency": 80, "clues": [
+      { "text": "Vasárnapi ebéd főszereplője", "difficulty": 1 },
+      { "text": "Mészáros árui", "difficulty": 2 }
+    ]},
+    { "answer": "HAL", "frequency": 80, "clues": [
+      { "text": "Vízben él, kopoltyúval lélegzik", "difficulty": 1 },
+      { "text": "Pénteki fogás", "difficulty": 2 },
+      { "text": "Horgász zsákmánya", "difficulty": 1 }
+    ]},
+    { "answer": "LISZT", "frequency": 85, "clues": [
+      { "text": "Búzából őrölt fehér por", "difficulty": 1 },
+      { "text": "Magyar zeneszerző is volt", "difficulty": 2 },
+      { "text": "Kenyér alapja", "difficulty": 1 }
+    ]},
+    { "answer": "CUKOR", "frequency": 88, "clues": [
+      { "text": "Fehér, édes konyhai alap", "difficulty": 1 },
+      { "text": "Kávéba teszik", "difficulty": 1 },
+      { "text": "Édességekben mindenhol ott van", "difficulty": 2 }
+    ]},
+    { "answer": "MÉZ", "frequency": 80, "clues": [
+      { "text": "Méhek aranyszínű kincse", "difficulty": 1 },
+      { "text": "Akácfáról is gyűjtik", "difficulty": 2 }
+    ]},
+    { "answer": "BORS", "frequency": 75, "clues": [
+      { "text": "Fekete csípős fűszer", "difficulty": 1 },
+      { "text": "Mellé kerül a só", "difficulty": 2 }
+    ]},
+    { "answer": "BOR", "frequency": 90, "clues": [
+      { "text": "Tokaj híres itala", "difficulty": 1 },
+      { "text": "Egri bikavér típusa", "difficulty": 2 },
+      { "text": "Szőlőből erjedt", "difficulty": 2 }
+    ]},
+    { "answer": "SÖR", "frequency": 85, "clues": [
+      { "text": "Habos malátás ital", "difficulty": 1 },
+      { "text": "Pilseni típusa", "difficulty": 2 }
+    ]},
+    { "answer": "TEA", "frequency": 90, "clues": [
+      { "text": "Forró ital, gyakran kamillás", "difficulty": 1 },
+      { "text": "Brit délutáni rituálé", "difficulty": 2 },
+      { "text": "Citrommal édesítik", "difficulty": 2 }
+    ]},
+    { "answer": "VÍZ", "frequency": 95, "clues": [
+      { "text": "Az élet alapja", "difficulty": 1 },
+      { "text": "H₂O", "difficulty": 2 },
+      { "text": "Folyik a csapból", "difficulty": 1 }
+    ]},
+    { "answer": "JÉG", "frequency": 80, "clues": [
+      { "text": "Fagyott víz", "difficulty": 1 },
+      { "text": "Korcsolyázni rajta", "difficulty": 1 }
+    ]},
+    { "answer": "HÓ", "frequency": 80, "clues": [
+      { "text": "Téli fehér csapadék", "difficulty": 1 },
+      { "text": "Szánkózáshoz kell", "difficulty": 1 }
+    ]},
+    { "answer": "ESŐ", "frequency": 85, "clues": [
+      { "text": "Felhőből hulló csapadék", "difficulty": 1 },
+      { "text": "Esernyőt nyit ki", "difficulty": 2 }
+    ]},
+    { "answer": "KÖD", "frequency": 75, "clues": [
+      { "text": "Őszi reggel párás takarója", "difficulty": 2 },
+      { "text": "Látótávot csökkenti", "difficulty": 2 }
+    ]},
+    { "answer": "VIHAR", "frequency": 70, "clues": [
+      { "text": "Heves szél és villámlás együtt", "difficulty": 1 },
+      { "text": "Drámai időjárás", "difficulty": 2 }
+    ]},
+    { "answer": "NAP", "frequency": 95, "clues": [
+      { "text": "Sárga égitest", "difficulty": 1 },
+      { "text": "24 órás időegység", "difficulty": 2 },
+      { "text": "Reggel fölkel", "difficulty": 1 }
+    ]},
+    { "answer": "HOLD", "frequency": 85, "clues": [
+      { "text": "Éjjeli égitest", "difficulty": 1 },
+      { "text": "Hónap szó eredete", "difficulty": 2 },
+      { "text": "Telje és újja van", "difficulty": 2 }
+    ]},
+    { "answer": "ÉG", "frequency": 75, "clues": [
+      { "text": "Felhők otthona", "difficulty": 1 },
+      { "text": "Kék boltozat", "difficulty": 2 }
+    ]},
+    { "answer": "FÖLD", "frequency": 95, "clues": [
+      { "text": "Bolygónk", "difficulty": 1 },
+      { "text": "Harmadik a Naptól", "difficulty": 2 },
+      { "text": "Termőtalaj", "difficulty": 2 }
+    ]},
+    { "answer": "TENGER", "frequency": 75, "clues": [
+      { "text": "Sós nagy víz", "difficulty": 1 },
+      { "text": "Magyarországnak nincs", "difficulty": 2 }
+    ]},
+    { "answer": "TÓ", "frequency": 80, "clues": [
+      { "text": "Balaton magyarul", "difficulty": 1 },
+      { "text": "Édesvizű állóvíz", "difficulty": 2 }
+    ]},
+    { "answer": "PATAK", "frequency": 70, "clues": [
+      { "text": "Hegyi kis vízfolyás", "difficulty": 1 },
+      { "text": "Folyócska", "difficulty": 2 }
+    ]},
+    { "answer": "VÖLGY", "frequency": 65, "clues": [
+      { "text": "Hegyek közti mélyedés", "difficulty": 1 },
+      { "text": "Folyó útja gyakran", "difficulty": 2 }
+    ]},
+    { "answer": "ERDŐ", "frequency": 90, "clues": [
+      { "text": "Sok fa együtt", "difficulty": 1 },
+      { "text": "Vadak otthona", "difficulty": 1 },
+      { "text": "Bakonyi tájkép", "difficulty": 2 }
+    ]},
+    { "answer": "MEZŐ", "frequency": 70, "clues": [
+      { "text": "Sík fűves terület", "difficulty": 1 },
+      { "text": "Pásztor terepe", "difficulty": 2 }
+    ]},
+    { "answer": "RÉT", "frequency": 65, "clues": [
+      { "text": "Virágos kaszáló", "difficulty": 2 },
+      { "text": "Tehenek legelője", "difficulty": 1 }
+    ]},
+    { "answer": "FA", "frequency": 90, "clues": [
+      { "text": "Levelekkel borított növény", "difficulty": 1 },
+      { "text": "Tölgy, juhar, fenyő", "difficulty": 1 }
+    ]},
+    { "answer": "FŰ", "frequency": 85, "clues": [
+      { "text": "Zöld, kaszálható növény", "difficulty": 1 },
+      { "text": "Pázsit anyaga", "difficulty": 2 }
+    ]},
+    { "answer": "VIRÁG", "frequency": 90, "clues": [
+      { "text": "Tavaszi színes növényi szépség", "difficulty": 1 },
+      { "text": "Vázába teszik", "difficulty": 1 },
+      { "text": "Méhek vonzzák", "difficulty": 2 }
+    ]},
+    { "answer": "RÓZSA", "frequency": 80, "clues": [
+      { "text": "Tüskés illatos virág", "difficulty": 1 },
+      { "text": "Szerelem szimbóluma", "difficulty": 2 },
+      { "text": "Piros vagy fehér", "difficulty": 2 }
+    ]},
+    { "answer": "TULIPÁN", "frequency": 70, "clues": [
+      { "text": "Holland nemzeti virág", "difficulty": 2 },
+      { "text": "Tavaszi csészevirág", "difficulty": 2 }
+    ]},
+    { "answer": "FENYŐ", "frequency": 80, "clues": [
+      { "text": "Karácsonyi örökzöld", "difficulty": 1 },
+      { "text": "Tűlevelű fa", "difficulty": 2 }
+    ]},
+    { "answer": "TÖLGY", "frequency": 65, "clues": [
+      { "text": "Erős magyar fa", "difficulty": 2 },
+      { "text": "Makk a termése", "difficulty": 2 }
+    ]},
+    { "answer": "AKÁC", "frequency": 70, "clues": [
+      { "text": "Magyar mézelő fa", "difficulty": 2 },
+      { "text": "Nyári fehér fürtös virágú fa", "difficulty": 3 }
+    ]},
+    { "answer": "KUTYA", "frequency": 95, "clues": [
+      { "text": "Ember legjobb barátja", "difficulty": 1 },
+      { "text": "Ugat és farkat csóvál", "difficulty": 1 },
+      { "text": "Pulit, vizslát ide sorolnánk", "difficulty": 2 }
+    ]},
+    { "answer": "MACSKA", "frequency": 90, "clues": [
+      { "text": "Dorombolós háziállat", "difficulty": 1 },
+      { "text": "Egerészik", "difficulty": 1 },
+      { "text": "Falurossza ráijeszt", "difficulty": 3 }
+    ]},
+    { "answer": "LÓ", "frequency": 85, "clues": [
+      { "text": "Patkolt nyerges állat", "difficulty": 1 },
+      { "text": "Csikóból nő nagyra", "difficulty": 2 }
+    ]},
+    { "answer": "TEHÉN", "frequency": 80, "clues": [
+      { "text": "Tejet ad a háznál", "difficulty": 1 },
+      { "text": "Mocskos legelő lakója", "difficulty": 3 }
+    ]},
+    { "answer": "DISZNÓ", "frequency": 70, "clues": [
+      { "text": "Disznótor főszereplője", "difficulty": 2 },
+      { "text": "Sárban dagonyázik", "difficulty": 2 }
+    ]},
+    { "answer": "JUH", "frequency": 65, "clues": [
+      { "text": "Gyapját nyírják", "difficulty": 2 },
+      { "text": "Bárányos állat", "difficulty": 2 }
+    ]},
+    { "answer": "KECSKE", "frequency": 65, "clues": [
+      { "text": "Szakállas mekegő", "difficulty": 2 },
+      { "text": "Sajt készül a tejéből", "difficulty": 2 }
+    ]},
+    { "answer": "MEDVE", "frequency": 75, "clues": [
+      { "text": "Téli álomalvó nagy állat", "difficulty": 1 },
+      { "text": "Mackó beceneve is", "difficulty": 2 }
+    ]},
+    { "answer": "RÓKA", "frequency": 75, "clues": [
+      { "text": "Vörös bundás ravasz vad", "difficulty": 1 },
+      { "text": "Kis Herceg új barátja", "difficulty": 3 }
+    ]},
+    { "answer": "FARKAS", "frequency": 70, "clues": [
+      { "text": "Erdei vadászó vadkutya", "difficulty": 2 },
+      { "text": "Piroska ellensége", "difficulty": 2 }
+    ]},
+    { "answer": "NYÚL", "frequency": 75, "clues": [
+      { "text": "Hosszú fülű ugráló", "difficulty": 1 },
+      { "text": "Húsvét hozza a tojást", "difficulty": 1 }
+    ]},
+    { "answer": "MADÁR", "frequency": 85, "clues": [
+      { "text": "Tollas röpülő lény", "difficulty": 1 },
+      { "text": "Tojást rak a fészkébe", "difficulty": 2 }
+    ]},
+    { "answer": "VARJÚ", "frequency": 60, "clues": [
+      { "text": "Fekete tollú károgó", "difficulty": 2 },
+      { "text": "Magvető rovására él", "difficulty": 3 }
+    ]},
+    { "answer": "FECSKE", "frequency": 65, "clues": [
+      { "text": "Villásfarkú nyári madár", "difficulty": 2 },
+      { "text": "Sárfészket épít", "difficulty": 2 }
+    ]},
+    { "answer": "GÓLYA", "frequency": 70, "clues": [
+      { "text": "Hosszú lábú vándormadár", "difficulty": 1 },
+      { "text": "Babák hagyományos szállítója", "difficulty": 2 }
+    ]},
+    { "answer": "BAGOLY", "frequency": 70, "clues": [
+      { "text": "Éjjeli huhogó", "difficulty": 1 },
+      { "text": "Bölcsesség jelképe", "difficulty": 2 }
+    ]},
+    { "answer": "MÉH", "frequency": 70, "clues": [
+      { "text": "Mézet gyűjtő rovar", "difficulty": 1 },
+      { "text": "Királynője van", "difficulty": 2 }
+    ]},
+    { "answer": "HANGYA", "frequency": 70, "clues": [
+      { "text": "Kis szorgalmas rovar", "difficulty": 1 },
+      { "text": "Bolyban él", "difficulty": 2 }
+    ]},
+    { "answer": "PÓK", "frequency": 70, "clues": [
+      { "text": "Hálót sző sarokban", "difficulty": 1 },
+      { "text": "Nyolc lábú ízeltlábú", "difficulty": 2 }
+    ]},
+    { "answer": "LEGYŐZ", "frequency": 65, "clues": [
+      { "text": "Versenyben első lesz nála jobb", "difficulty": 2 },
+      { "text": "Csatában kerekedik felül", "difficulty": 3 }
+    ]},
+    { "answer": "ANYA", "frequency": 95, "clues": [
+      { "text": "Aki szült minket", "difficulty": 1 },
+      { "text": "Apa párja", "difficulty": 1 }
+    ]},
+    { "answer": "APA", "frequency": 95, "clues": [
+      { "text": "Aki nevel minket apaként", "difficulty": 1 },
+      { "text": "Anya párja", "difficulty": 1 }
+    ]},
+    { "answer": "TESTVÉR", "frequency": 80, "clues": [
+      { "text": "Bátyám vagy nővérem", "difficulty": 1 },
+      { "text": "Közös szülő gyermeke", "difficulty": 2 }
+    ]},
+    { "answer": "BARÁT", "frequency": 90, "clues": [
+      { "text": "Hűséges társ az életben", "difficulty": 1 },
+      { "text": "Bizalmas pajtás", "difficulty": 2 }
+    ]},
+    { "answer": "GYEREK", "frequency": 90, "clues": [
+      { "text": "Még iskolás kor alatti", "difficulty": 1 },
+      { "text": "Játszótér lakója", "difficulty": 1 }
+    ]},
+    { "answer": "FELNŐTT", "frequency": 70, "clues": [
+      { "text": "Már nem gyerek", "difficulty": 2 },
+      { "text": "Szavazati joga van", "difficulty": 2 }
+    ]},
+    { "answer": "ISKOLA", "frequency": 90, "clues": [
+      { "text": "Tanulás színhelye", "difficulty": 1 },
+      { "text": "Csengetése reggel szól", "difficulty": 2 }
+    ]},
+    { "answer": "TANÁR", "frequency": 80, "clues": [
+      { "text": "Iskolai oktató", "difficulty": 1 },
+      { "text": "Tudást adja át", "difficulty": 2 }
+    ]},
+    { "answer": "DIÁK", "frequency": 75, "clues": [
+      { "text": "Iskolába járó tanuló", "difficulty": 1 },
+      { "text": "Egyetemi pótlóhuzat is", "difficulty": 3 }
+    ]},
+    { "answer": "KÖNYV", "frequency": 92, "clues": [
+      { "text": "Lapozgatható írott mű", "difficulty": 1 },
+      { "text": "Polcra teszik elolvasás után", "difficulty": 2 }
+    ]},
+    { "answer": "TOLL", "frequency": 80, "clues": [
+      { "text": "Kézi íróeszköz", "difficulty": 1 },
+      { "text": "Madárszárny alkotója is", "difficulty": 2 }
+    ]},
+    { "answer": "PAPÍR", "frequency": 85, "clues": [
+      { "text": "Lap a füzetből", "difficulty": 1 },
+      { "text": "Fából készül", "difficulty": 2 }
+    ]},
+    { "answer": "ÚJSÁG", "frequency": 70, "clues": [
+      { "text": "Reggeli lap a kávé mellé", "difficulty": 2 },
+      { "text": "Hírek nyomtatott formában", "difficulty": 2 }
+    ]},
+    { "answer": "ASZTAL", "frequency": 95, "clues": [
+      { "text": "Lapja és négy lába van", "difficulty": 1 },
+      { "text": "Étkezés helyszíne", "difficulty": 1 }
+    ]},
+    { "answer": "SZÉK", "frequency": 90, "clues": [
+      { "text": "Asztal mellé húzva ülnek rá", "difficulty": 1 },
+      { "text": "Hokedli vagy karos", "difficulty": 2 }
+    ]},
+    { "answer": "ÁGY", "frequency": 95, "clues": [
+      { "text": "Esti pihenőhelyünk", "difficulty": 1 },
+      { "text": "Paplan kerül rá", "difficulty": 1 }
+    ]},
+    { "answer": "AJTÓ", "frequency": 90, "clues": [
+      { "text": "Bejárati nyílás zárhatóan", "difficulty": 1 },
+      { "text": "Kilincs a fogantyúja", "difficulty": 2 }
+    ]},
+    { "answer": "ABLAK", "frequency": 90, "clues": [
+      { "text": "Üveges nyílás a falban", "difficulty": 1 },
+      { "text": "Reggel kinyitják szellőzni", "difficulty": 1 },
+      { "text": "Függöny takarja", "difficulty": 2 }
+    ]},
+    { "answer": "SZOBA", "frequency": 90, "clues": [
+      { "text": "Lakás egy helyisége", "difficulty": 1 },
+      { "text": "Háló- vagy nappali", "difficulty": 1 }
+    ]},
+    { "answer": "FAL", "frequency": 75, "clues": [
+      { "text": "Szoba függőleges határa", "difficulty": 1 },
+      { "text": "Tégla épül belőle", "difficulty": 2 }
+    ]},
+    { "answer": "PADLÓ", "frequency": 70, "clues": [
+      { "text": "Szoba talaja", "difficulty": 1 },
+      { "text": "Parkettás vagy szőnyeges", "difficulty": 2 }
+    ]},
+    { "answer": "LÁMPA", "frequency": 80, "clues": [
+      { "text": "Esti fényforrás", "difficulty": 1 },
+      { "text": "Asztali kis világító", "difficulty": 2 }
+    ]},
+    { "answer": "TÜKÖR", "frequency": 75, "clues": [
+      { "text": "Aki belenéz, magát látja", "difficulty": 1 },
+      { "text": "Mese gonosz tárgya", "difficulty": 3 }
+    ]},
+    { "answer": "ÓRA", "frequency": 90, "clues": [
+      { "text": "Időmérő kerek tárgy", "difficulty": 1 },
+      { "text": "Mutatói járnak", "difficulty": 2 },
+      { "text": "60 perc", "difficulty": 1 }
+    ]},
+    { "answer": "PERC", "frequency": 80, "clues": [
+      { "text": "60 másodperc", "difficulty": 1 },
+      { "text": "Időegység az óránál kisebb", "difficulty": 2 }
+    ]},
+    { "answer": "ÉV", "frequency": 90, "clues": [
+      { "text": "12 hónap", "difficulty": 1 },
+      { "text": "Naptári ciklus", "difficulty": 2 }
+    ]},
+    { "answer": "HÓNAP", "frequency": 80, "clues": [
+      { "text": "Naptári egység, kb. 30 nap", "difficulty": 1 },
+      { "text": "Január vagy február", "difficulty": 1 }
+    ]},
+    { "answer": "HÉT", "frequency": 85, "clues": [
+      { "text": "Hétfőtől vasárnapig", "difficulty": 1 },
+      { "text": "7 napos egység", "difficulty": 1 }
+    ]},
+    { "answer": "REGGEL", "frequency": 85, "clues": [
+      { "text": "Nap kezdete", "difficulty": 1 },
+      { "text": "Kávéillat ideje", "difficulty": 2 }
+    ]},
+    { "answer": "ESTE", "frequency": 85, "clues": [
+      { "text": "Naplemente után", "difficulty": 1 },
+      { "text": "Mese előtti idő", "difficulty": 2 }
+    ]},
+    { "answer": "ÉJ", "frequency": 70, "clues": [
+      { "text": "Sötét óráink", "difficulty": 1 },
+      { "text": "Csillagok ideje", "difficulty": 2 }
+    ]},
+    { "answer": "DÉL", "frequency": 70, "clues": [
+      { "text": "12 óra", "difficulty": 1 },
+      { "text": "Égtáj is, és napszak is", "difficulty": 2 }
+    ]},
+    { "answer": "TAVASZ", "frequency": 85, "clues": [
+      { "text": "Virágzó évszak", "difficulty": 1 },
+      { "text": "Március, április, május", "difficulty": 1 }
+    ]},
+    { "answer": "NYÁR", "frequency": 90, "clues": [
+      { "text": "Forró évszak", "difficulty": 1 },
+      { "text": "Strandolás ideje", "difficulty": 1 }
+    ]},
+    { "answer": "ŐSZ", "frequency": 85, "clues": [
+      { "text": "Lehulló levelek évszaka", "difficulty": 1 },
+      { "text": "Szüret ideje", "difficulty": 2 }
+    ]},
+    { "answer": "TÉL", "frequency": 90, "clues": [
+      { "text": "Hideg fehér évszak", "difficulty": 1 },
+      { "text": "Karácsony ideje", "difficulty": 1 }
+    ]},
+    { "answer": "PIROS", "frequency": 90, "clues": [
+      { "text": "Vér, eper, tűz színe", "difficulty": 1 },
+      { "text": "Magyar zászló felső csíkja", "difficulty": 2 }
+    ]},
+    { "answer": "KÉK", "frequency": 90, "clues": [
+      { "text": "Ég és tenger színe", "difficulty": 1 },
+      { "text": "Búzavirág árnyalata", "difficulty": 2 }
+    ]},
+    { "answer": "ZÖLD", "frequency": 90, "clues": [
+      { "text": "Fű és levél színe", "difficulty": 1 },
+      { "text": "Magyar zászló alsó csíkja", "difficulty": 2 }
+    ]},
+    { "answer": "SÁRGA", "frequency": 85, "clues": [
+      { "text": "Citrom és kanári színe", "difficulty": 1 },
+      { "text": "Napocska színe", "difficulty": 1 }
+    ]},
+    { "answer": "FEHÉR", "frequency": 90, "clues": [
+      { "text": "Hó és tej színe", "difficulty": 1 },
+      { "text": "Sakktábla világos kockái", "difficulty": 2 }
+    ]},
+    { "answer": "FEKETE", "frequency": 88, "clues": [
+      { "text": "Éjszaka és szén színe", "difficulty": 1 },
+      { "text": "Báránynak ritka", "difficulty": 3 }
+    ]},
+    { "answer": "BARNA", "frequency": 80, "clues": [
+      { "text": "Csokoládé és föld színe", "difficulty": 1 },
+      { "text": "Kávé tipikus árnyalata", "difficulty": 2 }
+    ]},
+    { "answer": "SZÍN", "frequency": 70, "clues": [
+      { "text": "Piros, kék vagy zöld közös fogalma", "difficulty": 2 },
+      { "text": "Festő kelléke", "difficulty": 2 }
+    ]},
+    { "answer": "SZÓ", "frequency": 75, "clues": [
+      { "text": "Beszéd legkisebb értelmes egysége", "difficulty": 1 },
+      { "text": "Keresztrejtvényben egy válasz", "difficulty": 2 }
+    ]},
+    { "answer": "BETŰ", "frequency": 75, "clues": [
+      { "text": "Ábécé eleme", "difficulty": 1 },
+      { "text": "A, B, C közös neve", "difficulty": 2 }
+    ]},
+    { "answer": "NÉV", "frequency": 80, "clues": [
+      { "text": "Akit így szólítanak", "difficulty": 1 },
+      { "text": "Pista vagy Anna", "difficulty": 1 }
+    ]},
+    { "answer": "DAL", "frequency": 75, "clues": [
+      { "text": "Énekelt zenedarab", "difficulty": 1 },
+      { "text": "Sláger vagy népdal", "difficulty": 2 }
+    ]},
+    { "answer": "ZENE", "frequency": 90, "clues": [
+      { "text": "Hallgatható dallam", "difficulty": 1 },
+      { "text": "Hangok művészete", "difficulty": 2 }
+    ]},
+    { "answer": "TÁNC", "frequency": 80, "clues": [
+      { "text": "Ritmusra mozgás", "difficulty": 1 },
+      { "text": "Báli fő tevékenység", "difficulty": 2 }
+    ]},
+    { "answer": "FILM", "frequency": 85, "clues": [
+      { "text": "Mozgókép a moziban", "difficulty": 1 },
+      { "text": "Hollywoodi termék", "difficulty": 2 }
+    ]},
+    { "answer": "VÁROS", "frequency": 85, "clues": [
+      { "text": "Falunál nagyobb település", "difficulty": 1 },
+      { "text": "Szeged vagy Pécs típusa", "difficulty": 2 }
+    ]},
+    { "answer": "FALU", "frequency": 80, "clues": [
+      { "text": "Vidéki kis település", "difficulty": 1 },
+      { "text": "Templomtorony és pár ház", "difficulty": 2 }
+    ]},
+    { "answer": "ÚT", "frequency": 90, "clues": [
+      { "text": "Aszfaltos közlekedési pálya", "difficulty": 1 },
+      { "text": "A vége egy célhoz vezet", "difficulty": 2 }
+    ]},
+    { "answer": "HÍD", "frequency": 80, "clues": [
+      { "text": "Folyón át vezet", "difficulty": 1 },
+      { "text": "Lánc, Erzsébet vagy Margit", "difficulty": 2 }
+    ]},
+    { "answer": "AUTÓ", "frequency": 90, "clues": [
+      { "text": "Négykerekű jármű", "difficulty": 1 },
+      { "text": "Garázsban áll éjjel", "difficulty": 2 }
+    ]},
+    { "answer": "VONAT", "frequency": 80, "clues": [
+      { "text": "Síneken járó hosszú jármű", "difficulty": 1 },
+      { "text": "Mozdony húzza", "difficulty": 2 }
+    ]},
+    { "answer": "BUSZ", "frequency": 85, "clues": [
+      { "text": "Tömegközlekedés gumikerekű ja", "difficulty": 1 },
+      { "text": "Iskolába visz reggel", "difficulty": 2 }
+    ]},
+    { "answer": "HAJÓ", "frequency": 75, "clues": [
+      { "text": "Vízen úszó jármű", "difficulty": 1 },
+      { "text": "Kapitány parancsnokol rajta", "difficulty": 2 }
+    ]},
+    { "answer": "BICIKLI", "frequency": 70, "clues": [
+      { "text": "Kétkerekű hajtható jármű", "difficulty": 1 },
+      { "text": "Pedállal megy", "difficulty": 2 }
+    ]},
+    { "answer": "PÉNZ", "frequency": 90, "clues": [
+      { "text": "Forint vagy euró", "difficulty": 1 },
+      { "text": "Pénztárcában tartják", "difficulty": 1 }
+    ]},
+    { "answer": "MUNKA", "frequency": 90, "clues": [
+      { "text": "Hivatás, foglalkozás", "difficulty": 1 },
+      { "text": "Pénzt hoz a házhoz", "difficulty": 2 }
+    ]},
+    { "answer": "SZÍV", "frequency": 95, "clues": [
+      { "text": "Vér pumpáló szerv", "difficulty": 1 },
+      { "text": "Szerelem jelképe", "difficulty": 1 }
+    ]},
+    { "answer": "FEJ", "frequency": 90, "clues": [
+      { "text": "Test legfelső része", "difficulty": 1 },
+      { "text": "Agy lakhelye", "difficulty": 2 }
+    ]},
+    { "answer": "KÉZ", "frequency": 95, "clues": [
+      { "text": "Öt ujjú végtag", "difficulty": 1 },
+      { "text": "Fogás és írás eszköze", "difficulty": 2 }
+    ]},
+    { "answer": "LÁB", "frequency": 90, "clues": [
+      { "text": "Járás és lépés szerve", "difficulty": 1 },
+      { "text": "Bokától felfelé", "difficulty": 2 }
+    ]},
+    { "answer": "SZEM", "frequency": 92, "clues": [
+      { "text": "Látás szerve", "difficulty": 1 },
+      { "text": "Kék, zöld vagy barna", "difficulty": 1 }
+    ]},
+    { "answer": "FÜL", "frequency": 85, "clues": [
+      { "text": "Hallás szerve", "difficulty": 1 },
+      { "text": "Bokán a fogantyú is, de itt csak a testen", "difficulty": 3 }
+    ]},
+    { "answer": "ORR", "frequency": 80, "clues": [
+      { "text": "Szaglás szerve az arcon", "difficulty": 1 },
+      { "text": "Tüsszent és náthás lesz", "difficulty": 2 }
+    ]},
+    { "answer": "SZÁJ", "frequency": 85, "clues": [
+      { "text": "Beszéd és evés szerve", "difficulty": 1 },
+      { "text": "Fogai vannak", "difficulty": 2 }
+    ]},
+    { "answer": "FOG", "frequency": 80, "clues": [
+      { "text": "Szájbeli rágóeszköz", "difficulty": 1 },
+      { "text": "Fésű is rendelkezik vele", "difficulty": 3 }
+    ]},
+    { "answer": "HAJ", "frequency": 85, "clues": [
+      { "text": "Fej szőrzete", "difficulty": 1 },
+      { "text": "Fésülgetik reggel", "difficulty": 2 }
+    ]},
+    { "answer": "RUHA", "frequency": 85, "clues": [
+      { "text": "Testet borító öltözék", "difficulty": 1 },
+      { "text": "Szekrényből vesszük elő", "difficulty": 2 }
+    ]},
+    { "answer": "CIPŐ", "frequency": 85, "clues": [
+      { "text": "Lábbeli", "difficulty": 1 },
+      { "text": "Talpa kopik", "difficulty": 2 }
+    ]},
+    { "answer": "KALAP", "frequency": 70, "clues": [
+      { "text": "Fejfedő, karima is van", "difficulty": 1 },
+      { "text": "Régi úriembereé", "difficulty": 2 }
+    ]},
+    { "answer": "SZÍN", "frequency": 60, "clues": [
+      { "text": "Festő és tervező anyaga", "difficulty": 2 },
+      { "text": "Spektrum eleme", "difficulty": 3 }
+    ]},
+    { "answer": "MEGY", "frequency": 80, "clues": [
+      { "text": "Halad valahova", "difficulty": 1 },
+      { "text": "Lépeget", "difficulty": 2 }
+    ]},
+    { "answer": "JÖN", "frequency": 80, "clues": [
+      { "text": "Közeledik felénk", "difficulty": 1 },
+      { "text": "Megérkezik", "difficulty": 1 }
+    ]},
+    { "answer": "VAN", "frequency": 95, "clues": [
+      { "text": "Létezik (3. személy)", "difficulty": 1 },
+      { "text": "Itt - igeként", "difficulty": 2 }
+    ]},
+    { "answer": "LESZ", "frequency": 85, "clues": [
+      { "text": "Jövő idejű létige", "difficulty": 1 },
+      { "text": "Holnap meg ez ___", "difficulty": 2 }
+    ]},
+    { "answer": "VOLT", "frequency": 90, "clues": [
+      { "text": "Múlt idejű létige", "difficulty": 1 },
+      { "text": "Egyszer ___ hol nem ___", "difficulty": 2 }
+    ]},
+    { "answer": "IGEN", "frequency": 90, "clues": [
+      { "text": "Egyetértés rövid kifejezése", "difficulty": 1 },
+      { "text": "Ellentéte: nem", "difficulty": 1 }
+    ]},
+    { "answer": "NEM", "frequency": 95, "clues": [
+      { "text": "Tagadás", "difficulty": 1 },
+      { "text": "Ellentéte: igen", "difficulty": 1 }
+    ]},
+    { "answer": "SZERETET", "frequency": 70, "clues": [
+      { "text": "A legszebb érzés", "difficulty": 2 },
+      { "text": "Anyai vagy testvéri", "difficulty": 2 }
+    ]},
+    { "answer": "OLVAS", "frequency": 75, "clues": [
+      { "text": "Könyvet végigél a szemével", "difficulty": 2 },
+      { "text": "Esti kedves elfoglaltság", "difficulty": 2 }
+    ]},
+    { "answer": "ÍR", "frequency": 75, "clues": [
+      { "text": "Tollal papíron", "difficulty": 1 },
+      { "text": "Kelt szerző", "difficulty": 2 }
+    ]},
+    { "answer": "ESZIK", "frequency": 80, "clues": [
+      { "text": "Magához veszi a táplálékot", "difficulty": 1 },
+      { "text": "Étkezőasztalnál teszi", "difficulty": 2 }
+    ]},
+    { "answer": "ALSZIK", "frequency": 75, "clues": [
+      { "text": "Éjjeli pihenőtevékenység", "difficulty": 1 },
+      { "text": "Ágyban teszi", "difficulty": 1 }
+    ]},
+    { "answer": "FUT", "frequency": 80, "clues": [
+      { "text": "Gyorsan halad lábbal", "difficulty": 1 },
+      { "text": "Sportoló edz vele", "difficulty": 2 }
+    ]},
+    { "answer": "ÁLL", "frequency": 80, "clues": [
+      { "text": "Lábon, mozdulatlanul", "difficulty": 1 },
+      { "text": "Az áll arca alja is", "difficulty": 2 }
+    ]},
+    { "answer": "ÜL", "frequency": 75, "clues": [
+      { "text": "Széken pihen", "difficulty": 1 },
+      { "text": "Asztalnál - étkezve", "difficulty": 2 }
+    ]},
+    { "answer": "JÁTÉK", "frequency": 90, "clues": [
+      { "text": "Gyerekkori szórakozás", "difficulty": 1 },
+      { "text": "Sakk vagy bújócska", "difficulty": 2 }
+    ]},
+    { "answer": "LABDA", "frequency": 85, "clues": [
+      { "text": "Gömbölyű játékszer, sportszer", "difficulty": 1 },
+      { "text": "Foci alapeszköze", "difficulty": 1 }
+    ]},
+    { "answer": "FOCI", "frequency": 85, "clues": [
+      { "text": "Labdarúgás röviden", "difficulty": 1 },
+      { "text": "Puskás Ferenc sportja", "difficulty": 2 }
+    ]},
+    { "answer": "GÓL", "frequency": 75, "clues": [
+      { "text": "Foci eredménye", "difficulty": 1 },
+      { "text": "Hálóba lőtt találat", "difficulty": 2 }
+    ]},
+    { "answer": "ÁLOM", "frequency": 80, "clues": [
+      { "text": "Alvás közben látott kép", "difficulty": 1 },
+      { "text": "Vágy is, és éjszakai is", "difficulty": 2 }
+    ]},
+    { "answer": "MESE", "frequency": 88, "clues": [
+      { "text": "Esti gyermekstory", "difficulty": 1 },
+      { "text": "Hófehérke vagy Hamupipőke", "difficulty": 2 }
+    ]},
+    { "answer": "FÉNY", "frequency": 85, "clues": [
+      { "text": "Sötétség ellenpontja", "difficulty": 1 },
+      { "text": "Lámpa árasztja", "difficulty": 2 }
+    ]},
+    { "answer": "ÁRNY", "frequency": 70, "clues": [
+      { "text": "Tárgy mögötti sötét folt", "difficulty": 2 },
+      { "text": "Délben rövidebb", "difficulty": 3 }
+    ]},
+    { "answer": "TŰZ", "frequency": 85, "clues": [
+      { "text": "Lángoló elem", "difficulty": 1 },
+      { "text": "Kandallóban él", "difficulty": 2 }
+    ]},
+    { "answer": "FÜST", "frequency": 70, "clues": [
+      { "text": "Tűz fölött gomolygó pára", "difficulty": 1 },
+      { "text": "Kéményből száll fel", "difficulty": 2 }
+    ]},
+    { "answer": "HAMU", "frequency": 65, "clues": [
+      { "text": "Tűz után marad", "difficulty": 1 },
+      { "text": "Hamupipőke szobájához kötődik", "difficulty": 2 }
+    ]},
+    { "answer": "KŐ", "frequency": 75, "clues": [
+      { "text": "Kemény ásványi anyag", "difficulty": 1 },
+      { "text": "Útszéli darab", "difficulty": 2 }
+    ]},
+    { "answer": "VAS", "frequency": 80, "clues": [
+      { "text": "Erős fém, mágnes vonzza", "difficulty": 1 },
+      { "text": "Kovács anyaga", "difficulty": 2 }
+    ]},
+    { "answer": "ARANY", "frequency": 85, "clues": [
+      { "text": "Sárgás drágafém", "difficulty": 1 },
+      { "text": "Ékszer alapanyaga", "difficulty": 1 },
+      { "text": "Magyar költő is volt", "difficulty": 2 }
+    ]},
+    { "answer": "EZÜST", "frequency": 80, "clues": [
+      { "text": "Fehér drágafém", "difficulty": 1 },
+      { "text": "Olimpiai második hely díja", "difficulty": 2 }
+    ]},
+    { "answer": "ÉLET", "frequency": 90, "clues": [
+      { "text": "Születéstől halálig", "difficulty": 1 },
+      { "text": "Lélegzés és mozgás összessége", "difficulty": 2 }
+    ]},
+    { "answer": "HALÁL", "frequency": 75, "clues": [
+      { "text": "Élet vége", "difficulty": 1 },
+      { "text": "Sose tréfa", "difficulty": 2 }
+    ]},
+    { "answer": "IDŐ", "frequency": 90, "clues": [
+      { "text": "Mit mér az óra?", "difficulty": 1 },
+      { "text": "Pénz is", "difficulty": 2 }
+    ]},
+    { "answer": "HELY", "frequency": 80, "clues": [
+      { "text": "Földrajzi pont", "difficulty": 1 },
+      { "text": "Foglalt, a buszon", "difficulty": 2 }
+    ]},
+    { "answer": "ÚR", "frequency": 70, "clues": [
+      { "text": "Férfi udvarias megszólítás", "difficulty": 1 },
+      { "text": "Mr. magyarul", "difficulty": 2 }
+    ]},
+    { "answer": "HÖLGY", "frequency": 65, "clues": [
+      { "text": "Nő udvarias megszólítása", "difficulty": 1 },
+      { "text": "Bálba illik", "difficulty": 2 }
+    ]},
+    { "answer": "OK", "frequency": 60, "clues": [
+      { "text": "Miért valami történt", "difficulty": 1 },
+      { "text": "Indok rövidebben", "difficulty": 2 }
+    ]},
+    { "answer": "VÉG", "frequency": 75, "clues": [
+      { "text": "Befejezés", "difficulty": 1 },
+      { "text": "Mese utolsó szava", "difficulty": 2 }
+    ]},
+    { "answer": "ELEJE", "frequency": 65, "clues": [
+      { "text": "Valaminek a kezdő szakasza", "difficulty": 2 },
+      { "text": "Vég ellentéte", "difficulty": 2 }
+    ]},
+    { "answer": "ARC", "frequency": 80, "clues": [
+      { "text": "Fej elülső része", "difficulty": 1 },
+      { "text": "Mosoly a házigazdája", "difficulty": 2 }
+    ]},
+    { "answer": "AJAK", "frequency": 60, "clues": [
+      { "text": "Száj két szegélye", "difficulty": 2 },
+      { "text": "Csókhoz kell", "difficulty": 2 }
+    ]},
+    { "answer": "ÉG", "frequency": 65, "clues": [
+      { "text": "Csillagok lakhelye", "difficulty": 1 },
+      { "text": "Lángol", "difficulty": 2 }
+    ]},
+    { "answer": "ÁRA", "frequency": 70, "clues": [
+      { "text": "Mennyibe kerül", "difficulty": 1 },
+      { "text": "Címkén szerepel", "difficulty": 2 }
+    ]},
+    { "answer": "AJTÓK", "frequency": 60, "clues": [
+      { "text": "Több bejárati nyílás", "difficulty": 2 },
+      { "text": "Bezárandók este", "difficulty": 2 }
+    ]},
+    { "answer": "EBÉD", "frequency": 80, "clues": [
+      { "text": "Déli étkezés", "difficulty": 1 },
+      { "text": "Leves és főétel", "difficulty": 1 }
+    ]},
+    { "answer": "ÉTEL", "frequency": 80, "clues": [
+      { "text": "Amit megeszünk", "difficulty": 1 },
+      { "text": "Ízletes vagy fád", "difficulty": 2 }
+    ]},
+    { "answer": "LEVES", "frequency": 80, "clues": [
+      { "text": "Forró első fogás", "difficulty": 1 },
+      { "text": "Húslevest is így hívják", "difficulty": 2 }
+    ]},
+    { "answer": "ÉDES", "frequency": 75, "clues": [
+      { "text": "Cukros ízű", "difficulty": 1 },
+      { "text": "Megszólítás is, gyengéd", "difficulty": 2 }
+    ]},
+    { "answer": "SAVANYÚ", "frequency": 65, "clues": [
+      { "text": "Ecet íze", "difficulty": 1 },
+      { "text": "Kovászos uborka jellemzője", "difficulty": 2 }
+    ]},
+    { "answer": "SÓS", "frequency": 70, "clues": [
+      { "text": "Tengervíz íze", "difficulty": 1 },
+      { "text": "Ropi tipikus tulajdonsága", "difficulty": 2 }
+    ]},
+    { "answer": "FORRÓ", "frequency": 75, "clues": [
+      { "text": "Égetően meleg", "difficulty": 1 },
+      { "text": "Tea kezdetben ilyen", "difficulty": 2 }
+    ]},
+    { "answer": "HIDEG", "frequency": 80, "clues": [
+      { "text": "Forró ellentéte", "difficulty": 1 },
+      { "text": "Téli reggel jellemzője", "difficulty": 1 }
+    ]},
+    { "answer": "MELEG", "frequency": 80, "clues": [
+      { "text": "Kellemesen langyos", "difficulty": 1 },
+      { "text": "Hideg ellentéte", "difficulty": 1 }
+    ]},
+    { "answer": "NAGY", "frequency": 88, "clues": [
+      { "text": "Méretes, terjedelmes", "difficulty": 1 },
+      { "text": "Tipikus magyar vezetéknév is", "difficulty": 2 }
+    ]},
+    { "answer": "KIS", "frequency": 80, "clues": [
+      { "text": "Apró, kicsi", "difficulty": 1 },
+      { "text": "Magyar vezetéknév is", "difficulty": 2 }
+    ]},
+    { "answer": "JÓ", "frequency": 95, "clues": [
+      { "text": "Kedvező értékelés", "difficulty": 1 },
+      { "text": "Iskolában 4-es érdemjegy", "difficulty": 2 }
+    ]},
+    { "answer": "ROSSZ", "frequency": 85, "clues": [
+      { "text": "Jó ellentéte", "difficulty": 1 },
+      { "text": "Negatív értékelés", "difficulty": 1 }
+    ]},
+    { "answer": "ÚJ", "frequency": 85, "clues": [
+      { "text": "Friss, ezelőtt nem volt", "difficulty": 1 },
+      { "text": "Évkezdő jelző januárban", "difficulty": 2 }
+    ]},
+    { "answer": "ÖREG", "frequency": 75, "clues": [
+      { "text": "Sokat élt, idős", "difficulty": 1 },
+      { "text": "Új ellentéte", "difficulty": 2 }
+    ]},
+    { "answer": "FIATAL", "frequency": 75, "clues": [
+      { "text": "Még nem öreg", "difficulty": 1 },
+      { "text": "Tinédzser jellemzője", "difficulty": 2 }
+    ]},
+    { "answer": "MAGYAR", "frequency": 95, "clues": [
+      { "text": "Hazánk nyelve és népe", "difficulty": 1 },
+      { "text": "Hungarian magyarul", "difficulty": 2 }
+    ]},
+    { "answer": "PEST", "frequency": 75, "clues": [
+      { "text": "Budapest keleti fele", "difficulty": 1 },
+      { "text": "Buda párja", "difficulty": 1 }
+    ]},
+    { "answer": "BUDA", "frequency": 75, "clues": [
+      { "text": "Budapest nyugati fele", "difficulty": 1 },
+      { "text": "Vár található rajta", "difficulty": 2 }
+    ]},
+    { "answer": "DUNA", "frequency": 90, "clues": [
+      { "text": "Magyarország fő folyója", "difficulty": 1 },
+      { "text": "Európán átfolyó nagy víz", "difficulty": 2 }
+    ]},
+    { "answer": "TISZA", "frequency": 80, "clues": [
+      { "text": "Második legnagyobb magyar folyó", "difficulty": 1 },
+      { "text": "Szegedet érinti", "difficulty": 2 }
+    ]},
+    { "answer": "BALATON", "frequency": 90, "clues": [
+      { "text": "Magyar tenger", "difficulty": 1 },
+      { "text": "Európa legnagyobb tava", "difficulty": 2 }
+    ]},
+    { "answer": "SZEGED", "frequency": 75, "clues": [
+      { "text": "Halászlé fővárosa", "difficulty": 2 },
+      { "text": "Tisza-parti dél-magyar város", "difficulty": 2 }
+    ]},
+    { "answer": "PÉCS", "frequency": 75, "clues": [
+      { "text": "Mecsekes város", "difficulty": 2 },
+      { "text": "Zsolnay otthona", "difficulty": 2 }
+    ]},
+    { "answer": "DEBRECEN", "frequency": 75, "clues": [
+      { "text": "Hortobágy közeli város", "difficulty": 2 },
+      { "text": "Második legnagyobb magyar város", "difficulty": 2 }
+    ]},
+    { "answer": "EGER", "frequency": 75, "clues": [
+      { "text": "Bikavér városa", "difficulty": 2 },
+      { "text": "1552 Dobó István hős vára", "difficulty": 3 }
+    ]}
+  ]
+}
